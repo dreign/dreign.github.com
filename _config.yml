@@ -1,68 +1,111 @@
-# Site Settings
-encoding: UTF-8
-exclude: ["*.gem", "*.gemspec", "Gemfile", "Gemfile.lock", "node_modules", "Rakefile", "starter-kit", "vendor"]
-lang: en # Language code as defined in _data/i18n.yml. en, en-gb, en-us, zh, zh-cn, zh-tw etc.
-permalink: /blog/:year/:month/:day/:title/
+#
+# 这个文档包含了本博客的设定信息，你可以编辑它来个性化自己的博客，
+#
 
-whitelist: [jekyll-feed, jekyll-redirect-from, jekyll-seo-tag, jekyll-sitemap]
-plugins:
-  - jekyll-feed
-  - jekyll-redirect-from
-  - jekyll-seo-tag
-  - jekyll-sitemap
+# 你的博客名称，请用你想要的博客名替换“LOFFER”，以下修改都可类似处理
+# 注意，“name: LOFFER”，冒号后面的空格不可以省略。
+# 井号后面的文字是说明文档，不会被程序读取。
+name: 风不休
+# 描述/签名
+description: 轻风细雨，润物无声
 
-markdown: kramdown
+#
+# 下面的设定都是可选的
+#
+
+# 你的博客logo图片URL，建议尺寸不超过300px × 300px
+avatar: https://raw.githubusercontent.com/FromEndWorld/LOFFER/master/images/logo.png
+
+# 你的favicon（出现在浏览器tab上）图片URL，建议使用较小(64px × 64px)的图片
+favicon: https://raw.githubusercontent.com/FromEndWorld/LOFFER/master/images/favicon.png
+
+
+# 菜单中的按钮
+navigation:
+  - name: 首页
+    url: /
+  - name: 关于
+    url: /about
+  - name: 归档
+    url: /archive
+  - name: 标签
+    url: /tags
+
+# 每页的文章数
+paginate: 8
+
+# 你的社交网络链接，它们会作为图标出现在你的网站页脚中，可选填写
+footer-links: 
+  weibo: frommidworld #请输入你的微博个性域名 https://www.weibo.com/<thispart>
+  behance: # https://www.behance.net/<>
+  dribbble: # https://dribbble.com/<>
+  email: dreign@163.com 
+  facebook: #https://www.facebook.com/<>
+  flickr: #https://www.flickr.com/<>
+  github: dreign #https://github.com/<>
+  instagram: #https://instagram.com/<>
+  linkedin: #https://www.linkedin.com/in/<>
+  pinterest: #https://www.pinterest.com/<>
+  rss: #随便填点啥RSS就能用了
+  stackoverflow: # http://stackoverflow.com/<>
+  tumblr: # https://<username>.tumblr.com
+  twitter: # https://www.twitter.com/dreign
+  youtube: # channel/<your_long_string> or user/<user-name>
+
+# 站点页脚的文字
+footer-text: Copyright (c) 1024+996
+
+# 输入Disqus shortname，即可添加评论区，细节可阅读文档。
+disqus: loffer #shortname
+
+# 输入Google Analytics web tracking code
+google_analytics:
+
+# 输入你的网站域名（如果你没有添加自己的域名，而是直接用GitHub pages分配的域名的话可以省略）
+url: 
+
+# 添加你的博客的二级域名，一般来说是你的repository名
+# 如果你的博客的URL是：(http://yourusername.github.io/repository-name)
+# 那么就写成 "/repository-name"
+baseurl: /dreign
+
+
+#
+# !! 以下所有设置都不需要更改 !!
+#
+
+permalink: /:title/
+paginate_path: /page:num/
+
+# The release of Jekyll Now that you're using
+version: v1.2.0
+
+# Jekyll 3 now only supports Kramdown for Markdown
 kramdown:
-  auto_id_prefix: 'heading-'
-  smart_quotes: ["apos", "apos", "quot", "quot"]
-  toc_levels: 1..3
+  # Use GitHub flavored markdown, including triple backtick fenced code blocks
+  input: GFM
+  # Jekyll 3 and GitHub Pages now only support rouge for syntax highlighting
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    # Use existing pygments syntax highlighting css
+    css_class: 'highlight'
 
+# Set the Sass partials directory, as we're using @imports
 sass:
-  style: compressed
+  style: :expanded # You might prefer to minify using :compressed
 
-# Site Data
-url: # the base hostname & protocol for your site, e.g. http://example.com
-baseurl: # the subpath of your site, e.g. /blog
-title: Simple Texture
-description: "A gem-based responsive simple texture styled Jekyll theme."
-keywords: 'jekyll,theme,gem-based,blog'
-author:
-  name:
-  job_title:
-  location:
-  email:
-  social_links:
-    - name: facebook
-      url:
-    - name: github
-      url: https://github.com/yizeng/jekyll-theme-simple-texture
-    - name: instagram
-      url:
-    - name: linkedin
-      url:
-    - name: stackoverflow
-      url:
-    - name: twitter
-      url: 
-    - name: vk
-      url:
-home:
-  section1: <h1>Simple Texture</h1>
-  section2: <h2>A gem-based responsive simple texture styled Jekyll theme</h2>
-  section3: <div class="social-links"><a class="ico-github btn" href="https://github.com/yizeng/jekyll-theme-simple-texture" title="View on GitHub"></a></div>
-blog:
-  cc_license: http://creativecommons.org/licenses/by-sa/4.0/ # A link to CC License of your choice.
-  cc_license_image: /assets/images/theme/cc-by-sa.png # An image of your CC License. 
-  footer_content: A gem-based responsive simple texture styled <a href="http://jekyllrb.com/">Jekyll</a> theme.
+# Use the following plug-ins
+plugins:
+  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
+  - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
+  - jekyll-paginate
 
-disqus:
-  shortname: # e.g. yizeng
-  public_key: # e.g. ULZ0b9TFefCUJHKQd4JCKv2v3u27YoG7YG8zXPewkWrT333Z0Se9YnxLzoV6VM8W
-google_tag_manager: # e.g. 'GTM-KCQJXZ8F'
-addthis_public_id: # AddThis sharing plugin. See http://www.addthis.com/. E.g. ra-53329e27694534j5 
+# Exclude these files from your production _site
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - CNAME
 
-paths:
-  home: /
-  blog: /blog/
-  categories: /blog/categories/
-  tags: /blog/tags/
+excerpt_separator: ---
